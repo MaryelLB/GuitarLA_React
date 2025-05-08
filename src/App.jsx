@@ -8,9 +8,13 @@ export default function App() {
   const [data, setData] = useState(db)
   const [cart, setCart] = useState([])
 
+  const MAX_ITEMS = 5
+  const MIN_ITEMS = 1
+
   function addToCart(item) {
     const itemExits = cart.findIndex((guitar) => guitar.id === item.id)
     if(itemExits >= 0) { //Existe
+      if(cart[itemExits].quantity >= MAX_ITEMS) return
       const updateCart = [...cart]
       updateCart[itemExits].quantity++
       setCart(updateCart)
@@ -18,13 +22,53 @@ export default function App() {
       item.quantity = 1
       setCart([...cart, item])
     }
-  
+      saveLocalStorage()
+  }
+
+  function removeFromCart(id) {
+    setCart((prevCart)=> prevCart.filter(guitar => guitar.id !== id))
+  }
+
+  function increaseQuantity(id) {
+    const updateCart = cart.map( item => {
+      if(item.id === id && item.quantity < MAX_ITEMS) {
+          return {
+            ...item,
+            quantity: item.quantity + 1
+          }
+      }
+      return item
+    })
+    setCart(updateCart)
+  }
+  function degreaseQuantity(id) {
+    const updateCart = cart.map( item => {
+      if(item.id === id && item.quantity > MIN_ITEMS) {
+          return {
+            ...item,
+            quantity: item.quantity - 1
+          }
+      }
+      return item
+    })
+    setCart(updateCart)
+  }
+
+  function clearCart(){
+    setCart([])
+  }
+  function saveLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify(cart))
   }
 
   return (
     <>
     <Header
       cart = {cart}
+      removeFromCart = {removeFromCart}
+      increaseQuantity = {increaseQuantity}
+      degreaseQuantity = {degreaseQuantity}
+      clearCart = {clearCart}
     />
     <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
