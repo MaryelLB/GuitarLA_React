@@ -9,7 +9,7 @@ export default function App() {
     return localStorageCart ? JSON.parse(localStorageCart) : []
   }
   //State
-  const [data, setData] = useState(db)
+  const [data] = useState(db)
   const [cart, setCart] = useState(initialCart)
 
   const MIN_ITEMS = 1
