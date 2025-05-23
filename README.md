@@ -1,12 +1,61 @@
-# React + Vite
+# 🎸 GuitarLA - Tienda de Guitarras con React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![React Version](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
+[![Vite Version](https://img.shields.io/badge/Vite-4.0.0-purple.svg)](https://vitejs.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Demo](https://img.shields.io/badge/🚀_Live_Demo-FF6B00?style=flat&logo=vercel)](https://jade-pony-251be1.netlify.app/)
 
-Currently, two official plugins are available:
+Un e-commerce moderno de guitarras desarrollado con React, que incluye catálogo de productos, blog musical y carrito de compras.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![image](https://github.com/user-attachments/assets/835f404d-c506-42cb-af05-f6f3afb89eff)
 
-## Expanding the ESLint configuration
+## ✨ Características principales
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🛒 **Sistema de carrito de compras** completo
+- 📦 Catálogo de productos con filtrado
+- ✍️ Sección de blog con artículos musicales
+- 🚀 Rendimiento optimizado con Vite
+- 📱 Diseño 100% responsive
+- 🎨 Animaciones CSS fluidas
+- 🔄 Estados de carga y manejo de errores
+
+## 🛠 Stack tecnológico
+
+### Frontend
+- **React 18** - Biblioteca principal
+- **Vite** - Bundler y entorno de desarrollo
+- **React Router v6** - Navegación SPA
+- **Context API** - Gestión de estado global
+- **CSS Modules** - Estilos componentizados
+- **Custom Hooks** - Lógica reutilizable
+
+### Backend (Mock)
+- **JSON Server** - API simulada
+- **Axios** - Peticiones HTTP
+
+## 🏗 Estructura del proyecto
+
+```bash
+src/
+├── assets/            # Imágenes y recursos estáticos
+├── components/        # Componentes reutilizables
+│   ├── Guitarra.jsx   # Componente de producto
+│   ├── Post.jsx       # Componente de artículo de blog
+│   ├── Layout.jsx     # Layout principal
+│   └── ...           # Otros componentes
+├── context/           # Contextos globales
+│   └── CarritoContext.jsx
+├── hooks/             # Custom hooks
+│   ├── useGuitarras.js
+│   └── usePosts.js
+├── pages/             # Vistas/páginas
+│   ├── Inicio.jsx
+│   ├── Blog.jsx
+│   ├── Tienda.jsx
+│   └── ...
+├── styles/            # Estilos CSS Modules
+│   ├── global.css
+│   ├── guitarras.module.css
+│   └── ...
+├── App.jsx            # Componente raíz
+└── main.jsx           # Punto de entrada
